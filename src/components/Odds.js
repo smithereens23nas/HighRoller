@@ -3,44 +3,44 @@ import { View, Text, TextInput, ScrollView, StyleSheet, Dimensions } from 'react
 
 let deviceWidth = Dimensions.get('window').width
 let deviceHeight = Dimensions.get('window').height
-export default function OddsComponent(props){
+const OddsComponent = (props) => {
 const { date, title, team } = props;
 
 return(
-<View style={{width:deviceWidth, padding:25}}>
-    <View style={{ flexDirection: 'row', backgroundColor: 'orange', outline: 'red solid 2px' }}>
-    <Text style={{padding: 7}}>{date}</Text>
-    <Text style={{padding: 7, flexDirection:'column', flex:1, flexWrap: 'wrap', textAlign:'center'}}>Point Spread</Text>
-    <Text style={{padding: 7}}>Total Points</Text>
-    <Text style={{padding: 7}}>Moneyline</Text>
+<View style={{width:deviceWidth}}>
+    <View style={styles.oddsTitleHeadersContainer}>
+    <Text style={styles.oddsTitleHeaderDate}>{date}</Text>
+    <Text style={styles.oddsTitleHeaders}>Point Spread</Text>
+    <Text style={styles.oddsTitleHeaders}>Total Points</Text>
+    <Text style={styles.oddsTitleHeaders}>Moneyline</Text>
     </View>
-<View style={{flexDirection: 'row', padding:25}}>
-    <Text>PIT Pirates</Text>
+<View style={styles.oddsContainer}>
+    <Text style={styles.oddsText}>PIT Pirates</Text>
     <View>
-        <Text>+1.5</Text>
-        <Text>-125</Text>
+        <Text style={styles.oddsText}>+1.5</Text>
+        <Text style={styles.oddsText}>-125</Text>
     </View>
         <View>
-            <Text>O 9.5</Text>
-            <Text>-125</Text>
+            <Text style={styles.oddsText}>O 9.5</Text>
+            <Text style={styles.oddsText}>-125</Text>
         </View>
     <View>
-        <Text>+140</Text>
+        <Text style={styles.oddsTextMoneyline}>+140</Text>
     </View>
 
 </View>
-<View style={{flexDirection: 'row'}}>
-    <Text>SD Padres</Text>
+<View style={styles.oddsContainer}>
+    <Text style={styles.oddsText}>SD Padres</Text>
     <View>
-        <Text>-1.5</Text>
-        <Text>+130</Text>
+        <Text style={styles.oddsText}>-1.5</Text>
+        <Text style={styles.oddsText}>+130</Text>
     </View>
         <View>
-            <Text>U 9.5</Text>
-            <Text>-105</Text>
+            <Text style={styles.oddsText}>U 9.5</Text>
+            <Text style={styles.oddsText}>-105</Text>
         </View>
     <View>
-        <Text>+140</Text>
+        <Text style={styles.oddsTextMoneyline}>+140</Text>
     </View>
 
 </View>
@@ -51,8 +51,43 @@ return(
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      padding: 24,
-      backgroundColor: '#eaeaea',
-    }})
+
+    oddsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor:"blue",
+        padding:15,
+    },
+    oddsText: {
+        textAlign:'center', 
+        backgroundColor: 'red'
+    },
+    oddsTextMoneyline:{
+        textAlign:'center', 
+        backgroundColor: 'red',
+        marginRight: 15
+
+    },
+    oddsTitleHeadersContainer: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        backgroundColor: 'gray', 
+        padding:15,
+        
+     },
+  
+        oddsTitleHeaders: {
+            textAlign:'center', 
+            width:70,
+            backgroundColor: 'orange'
+        },
+        oddsTitleHeaderDate: {            textAlign:'center', 
+        width:70,
+        backgroundColor: 'orange',
+marginRight: 20
+
+        },
+    
+})
+
+export default OddsComponent;

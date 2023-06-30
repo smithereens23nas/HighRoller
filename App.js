@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
   <OddsComponent 
-  date={"May 25th"}
+  date={new Date().toLocaleString()}
   />
  
     </View>
